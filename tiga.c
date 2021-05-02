@@ -14,18 +14,21 @@ if(pid ==0) {
 printf("Enter child process name: ");
 fgets(name, 30, stdin);
 printf("Child  Name : %s \n", name);
-printf("Child process => PPID=%d, PID=%d\n", getppid(), getpid());
+printf("Child process => PPID=%d, PID=%d \n", getppid(), getpid());
 exit (0);
 }
-else {
+else if (pid > 0) {
 wait(NULL);
-printf("Parent process => PID=%d\n", getpid());
-printf("Child process finished.\n");
-printf("Job is done!");
-
+printf("Parent process => PID=%d \n", getpid());
+printf("Child process finished. \n");
+printf("Job is done! \n");
 }
+
+else {
+printf("Unable to create child process. \n");
+}
+
 }
 
 return EXIT_SUCCESS;
-
 }
